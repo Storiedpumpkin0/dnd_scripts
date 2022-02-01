@@ -163,6 +163,8 @@ def make_player():
     time.sleep(1)
     print(" sense_motive is: " ,str(sense_motive))
 
+
+# test commit from pycharm
   
   
     return
