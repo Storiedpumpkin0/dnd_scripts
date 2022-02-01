@@ -113,7 +113,9 @@ def make_player():
       #      file.write(str(player_info_dict))
 
         #Show player stats
-        print( "\n\nyour stats are: ")
+        print( "\n...Rolling the dice...")
+        time.sleep(1)
+        print( "\nyour base stats are: \n\n")
         time.sleep(1)
         for key in player_info_dict:
             print(key, player_info_dict[key])
