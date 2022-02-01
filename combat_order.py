@@ -30,4 +30,4 @@ for k,v in reversed(sorted(combatant_names_and_scores .items(), key=itemgetter(1
     output_df = output_df.append({'Name': str(k), 'Initiative': str(v), 'HP': ""}, ignore_index = True)
 
 # write the output as a csv
-output_df.to_csv(output_dir + "combat_order.csv", index=False
+output_df.to_csv(output_dir + "combat_order.csv", index=False)
