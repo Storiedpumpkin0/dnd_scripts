@@ -4,12 +4,16 @@
 #
 # -------------------------------------------------------------------------------------------------------------
 from operator import itemgetter
+import pandas as pd
+
 #variables
 
 x = 0
 combatant_names_and_scores = {}
+output_dir = "C:\\Users\\hitch\\Documents\\DND_Hitchcock_house\\combat\\"
 player_count = int(input("How many players are there?"))
 monster_count = int(input("how many monsters are there?"))
+output_df = pd.DataFrame()
 
 #get total combatants involved
 total_combatants = player_count + monster_count
@@ -25,6 +29,14 @@ while x < total_combatants :
     x = x + 1
 
 # print the order of combat
-for k,v in reversed(sorted(combat_order.items(), key=itemgetter(1))):
-    print (k,v)
-    order_by_name.extend(k)
+for k,v in reversed(sorted(combatant_names_and_scores .items(), key=itemgetter(1))):
+    #print (k,v)
+    #output = str(k) + ", " + str(v) + "\n"
+    #output.append(str(k))
+    #output.append(str(v))
+    output_df = output_df.append({'Name': str(k), 'Initiative': str(v), 'HP': ""}, ignore_index = True)
+
+#print(output_df)
+output_df.to_csv(output_dir + "combat_order.csv", index=False)
+
+

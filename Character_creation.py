@@ -16,7 +16,7 @@
 def make_player():
 
     #import anything that is needed
-    import random,time#,tools
+    import random,time
 
     # Variables and lists
     Playable_Races = ('human', 'halfling', 'gnome', 'half orc', 'dwarf', 'half elf', 'elf')
