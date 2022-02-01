@@ -22,7 +22,7 @@ def make_player():
     Playable_Races = ('human', 'halfling', 'gnome', 'half orc', 'dwarf', 'half elf', 'elf')
     Playable_Classes = ('sorcerer', 'wizard', 'bard', 'rogue', 'cleric', 'druid', 'monk', 'ranger', 'fighter', 'paladin', 'barbarian')
     Playable_Genders = ('m', 'f')
-    player_info_file_path = 'Data\\player_info\\'
+    player_info_file_path = 'C:\\Users\\hitch\\Documents\\DND_Hitchcock_house\\players\\'
     reroll = 'y'
     rollcount = 0
     min = 10
@@ -102,21 +102,13 @@ def make_player():
                             "Speed": speed
                             }
 
-        # save the players info as a dictionary in the player info folder
-      #  Newfile = player_info_file_path + "player.txt"
-      #  with open(Newfile, 'w') as file:
-       #    file.write(str(player_info_dict))
-
-        # save the players original information
-   #     Newfile = player_info_file_path + "Original_player.txt"
-    #    with open(Newfile, 'w') as file:
-      #      file.write(str(player_info_dict))
 
         #Show player stats
         print( "\n...Rolling the dice...")
         time.sleep(1)
         print( "\nyour base stats are: \n\n")
         time.sleep(1)
+        print("\n")
         for key in player_info_dict:
             print(key, player_info_dict[key])
             time.sleep(.75)
@@ -138,7 +130,6 @@ def make_player():
 
     print("\n great, then your stats are set.")
 
-
    # generate special skills
    
     swim = ( strength + dex) + random.randint(min,max)-random.randint(min,max)
@@ -147,8 +138,8 @@ def make_player():
     bluff = (cha + strength - random.randint(min,max) )
     search = (wis + random.randint(min,max) - random.randint(min,max))
     sense_motive = search + cha - random.randint(min,max)
-    
-    
+
+
     
     # print specizl skills
     print("\n swim is: " ,str(swim))
@@ -163,6 +154,30 @@ def make_player():
     time.sleep(1)
     print(" sense_motive is: " ,str(sense_motive))
 
+    # save the players info as a txt file in the player info folder
+    Newfile = player_info_file_path + player_name + ".txt"
+    with open(Newfile, 'w') as file:
+
+        #file.write(str(player_info_dict))
+        file.write("\n-- Player Stats -- \n")
+        file.write("\nName: " + str(player_info_dict["Name"]))
+        file.write("\nRace: " + str(player_info_dict["Race"]))
+        file.write("\nClass: " + str(player_info_dict["player_class"]))
+        file.write("\nGender: " + str(player_info_dict["Gender"]))
+        file.write("\nStr: " + str(player_info_dict["Strength"]))
+        file.write("\nDex: " + str(player_info_dict["Dex"]))
+        file.write("\nCon: " + str(player_info_dict["Constitution"]))
+        file.write("\nInt: " + str(player_info_dict["Intelligence"]))
+        file.write("\nCha: " + str(player_info_dict["Charistma"]))
+        file.write("\n\nHP: " + str(player_info_dict["Hit Points"]))
+        file.write("\nspeed: " + str(player_info_dict["Speed"]))
+        file.write("\n\n-- Special Stats -- ")
+        file.write("\nswim: " + str(swim))
+        file.write("\nclimb: " + str(climb))
+        file.write("\ndiplomacy: " + str(dip))
+        file.write("\nbluff: " + str(bluff))
+        file.write("\nsearch: " + str(search))
+        file.write("\nsense motive: " + str(sense_motive))
 
 # test commit from pycharm
   
