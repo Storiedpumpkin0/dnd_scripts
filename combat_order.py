@@ -7,7 +7,6 @@ from operator import itemgetter
 import pandas as pd
 
 #variables
-
 x = 0
 combatant_names_and_scores = {}
 output_dir = "C:\\Users\\hitch\\Documents\\DND_Hitchcock_house\\combat\\"
@@ -18,9 +17,7 @@ output_df = pd.DataFrame()
 #get total combatants involved
 total_combatants = player_count + monster_count
 
-# get the relevant info from the players
-print("enter combatants names, initiative scores")
-
+# add players and initiative scores to a dictionary
 while x < total_combatants :
     print("\n")
     combatant_name = input("enter combatant name: ")
@@ -28,15 +25,9 @@ while x < total_combatants :
     combatant_names_and_scores[combatant_name] = combatant_initiative
     x = x + 1
 
-# print the order of combat
+# save the dictonary in decending order (highest first) to get the order of combat
 for k,v in reversed(sorted(combatant_names_and_scores .items(), key=itemgetter(1))):
-    #print (k,v)
-    #output = str(k) + ", " + str(v) + "\n"
-    #output.append(str(k))
-    #output.append(str(v))
     output_df = output_df.append({'Name': str(k), 'Initiative': str(v), 'HP': ""}, ignore_index = True)
 
-#print(output_df)
-output_df.to_csv(output_dir + "combat_order.csv", index=False)
-
-
+# write the output as a csv
+output_df.to_csv(output_dir + "combat_order.csv", index=False
